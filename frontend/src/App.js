@@ -16,7 +16,7 @@ function App() {
   });
 
   const getSeats = () => {
-    axios.get(`http://localhost:5000/seats`)
+    axios.get(`https://unstop-assignment-backend.vercel.app/seats`)
     .then((res) => {
       setLoading(false);
       setSeats(res.data)
@@ -35,7 +35,7 @@ function App() {
       return;
     }
 
-    axios.post(`http://localhost:5000/seats/reserve`, { "No_of_Seats" : Number(count) })
+    axios.post(`https://unstop-assignment-backend.vercel.app/seats/reserve`, { "No_of_Seats" : Number(count) })
     .then((res) => {
       setBooked(res.data);
       toast({
@@ -59,7 +59,7 @@ function App() {
 
 
   const handleReset = () => {
-    axios.patch(`http://localhost:5000/seats/reset`)
+    axios.patch(`https://unstop-assignment-backend.vercel.app/seats/reset`)
     .then((res) => console.log(res))
     .catch((error) => console.log(error));
     toast({
